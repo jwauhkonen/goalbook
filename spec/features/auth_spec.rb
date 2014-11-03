@@ -9,8 +9,17 @@ feature "the signup process" do
   end
 
   feature "signing up a user" do
-
-    it "shows username on the homepage after signup"
+    
+    before(:each) do
+      visit new_user_url
+      fill_in 'Username', :with => 'david'
+      fill_in 'Password', :with => 'password1'
+      click_on 'Sign Up'
+    end
+    
+    scenario "shows username on the homepage after signup" do
+      expect(page).to have_content 'david'
+    end
 
   end
 
