@@ -7,9 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<%= flash[:errors] %>
   
 <% if logged_in? %>
-  <h4>Hi, <%= @user.username %></h4>
+  <h4>Hi, <%= current_user.username %></h4>
 <% end %>
 
 <%= yield %>
